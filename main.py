@@ -23,4 +23,4 @@ if __name__ == '__main__':
 
     # webhooks.create
     # url - url to your server
-    # app.webhooksCreate(self, url)
+    # app.webhooksCreate(url)
