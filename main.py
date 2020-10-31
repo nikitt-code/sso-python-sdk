@@ -34,3 +34,14 @@ if __name__ == '__main__':
 
     # webhooks.delete
     # app.webhooksDelete(url)
+
+    # promocodes.create
+    # count, activations
+    # app.promoCreate(count, activations)
+
+    # promocodes.get
+    # app.promoGet()
+
+    # promocodes.activate
+    # code - promocode value
+    # app.promoActivate()
