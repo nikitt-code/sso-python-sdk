@@ -7,7 +7,7 @@ MIT, All Rights Reserved
 """
 
 if __name__ == '__main__':
-    app = SSOSDK("YOUR_TOKEN")
+    app = SSOSDK("TOKEN HERE")
 
     # users.get
     # users_array - array of ids, if u need one user [ id ]
@@ -19,8 +19,18 @@ if __name__ == '__main__':
 
     # transfers.getHistory
     # count - count of transfers to show
-    # app.transfersGet(count)
+    # app.transfersGetHistory(count)
+
+    # transfers.get
+    # transfer_ids - array of ids of transfers, if u need one transfer [ id ]
+    # app.transfersGet([ 743 ])
+
+    # webhooks.get
+    # app.webhooksGet(url)
 
     # webhooks.create
     # url - url to your server
-    # app.webhooksCreate(url)
+    # app.webhooksSet(url)
+
+    # webhooks.delete
+    # app.webhooksDelete(url)
