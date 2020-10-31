@@ -76,3 +76,25 @@ class SSOSDK:
         data = { "token": self.token }
         res = self.get("webhooks.delete", data)
         return res.json()
+
+    """
+    PROMOCODES  |
+                |    СКОРО ДОБАВЯТ
+                V
+    """
+
+    def promoCreate(self, count, activations):
+        data = { "token": self.token, "count": count, "activations": activations}
+        res = self.get("promocodes.create", data)
+        return res.json()
+
+    def promoGet(self):
+        data = { "token": self.token }
+        res = self.get("promocodes.get", data)
+        return res.json()
+
+    def promoActivate(self, code):
+        data = { "token": self.token, "code": code }
+        res = self.get("promocodes.activate", data)
+        return res.json()
+
