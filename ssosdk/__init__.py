@@ -7,21 +7,14 @@ class SSOSDK:
         self.host = "https://simulator.apiuser.ru/%method%/?author=niki_tt"
         self.token = token
 
-    def get(self, method, data):
+    def get(self, method, data) :
         url = self.host.replace("%method%", method)
         payload = data
         headers = {'Content-Type': 'application/json'}
         response = rq.post(url, data=json.dumps(payload), headers=headers)
         return response
 
-    """
-    USERS     |
-              |
-              V
-    """
-
-    # users.get
-    def usersGet(self, user_ids):
+    def usersGet(self, user_ids) -> bytearray:
         userids = []
         for x in user_ids: userids.append(str(x))
         users = ",".join(userids)
@@ -29,26 +22,17 @@ class SSOSDK:
         res = self.get("users.get", data)
         return res.json()
 
-    """
-    TRANSFERS |
-              |
-              V
-    """
-
-    # transfers.create
-    def transfersCreate(self, to, count):
+    def transfersCreate(self, to, count) -> bytearray:
         data = { "token": self.token, "peer_id":to, "count": count }
         res = self.get("transfers.create", data)
         return res.json()
 
-    # transfers.getHistory
-    def transfersGetHistory(self, count):
+    def transfersGetHistory(self, count) -> bytearray:
         data = { "token": self.token, "limit": count }
         res = self.get("transfers.getHistory", data)
         return res.json()
 
-    # transfers.get
-    def transfersGet(self, ids):
+    def transfersGet(self, ids) -> bytearray:
         tids = []
         for x in ids: tids.append(str(x))
         transferids = ",".join(tids)
@@ -56,44 +40,32 @@ class SSOSDK:
         res = self.get("transfers.get", data)
         return res.json()
 
-    """
-    WEBHOOKS  |
-              |
-              V
-    """
-
-    def webhooksGet(self):
+    def webhooksGet(self) -> bytearray:
         data = { "token": self.token }
         res = self.get("webhooks.get", data)
         return res.json()
 
-    def webhooksSet(self, url):
+    def webhooksSet(self, url) -> bytearray:
         data = { "token": self.token, "url": url }
         res = self.get("webhooks.create", data)
         return res.json()
 
-    def webhooksDelete(self):
+    def webhooksDelete(self) -> bytearray:
         data = { "token": self.token }
         res = self.get("webhooks.delete", data)
         return res.json()
 
-    """
-    PROMOCODES  |
-                |    СКОРО ДОБАВЯТ
-                V
-    """
-
-    def promoCreate(self, count, activations):
+    def promoCreate(self, count, activations) -> bytearray:
         data = { "token": self.token, "count": count, "activations": activations}
         res = self.get("promocodes.create", data)
         return res.json()
 
-    def promoGet(self):
+    def promoGet(self) -> bytearray:
         data = { "token": self.token }
         res = self.get("promocodes.get", data)
         return res.json()
 
-    def promoActivate(self, code):
+    def promoActivate(self, code) -> bytearray:
         data = { "token": self.token, "code": code }
         res = self.get("promocodes.activate", data)
         return res.json()

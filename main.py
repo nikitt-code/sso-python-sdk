@@ -1,10 +1,4 @@
 from ssosdk import SSOSDK
-"""
-SSO PYTHON SDK
-author: vk.com/niki_tt
-Поддержи разработчика: https://vk.com/app7602416#to=463406970
-MIT, All Rights Reserved
-"""
 
 if __name__ == '__main__':
     app = SSOSDK("TOKEN HERE")
